@@ -3,7 +3,11 @@ name: Déploiement  vers gh-pages
 on:
   push:
     branches:
-      - main
+      - main  # Déclenche l'action quand on push sur `main`
+
+permissions:
+  contents: write  # Nécessaire pour push sur `gh-pages`
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -29,5 +33,3 @@ jobs:
         with:
           branch: gh-pages
           folder: out  # Le dossier généré par `next export`
-
-
