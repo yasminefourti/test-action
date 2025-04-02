@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
       - name: 🔧 Setup Node.js
@@ -23,17 +23,20 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      - name:  Install dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name:  Build the project & export en version statique dans le dossier `out`
+      - name: 🏗️ Build the project & export en version statique dans le dossier `out`
         run: npm run build
 
-      - name:  Deploy to GitHub Pages
+      - name: 📂 Lister le contenu du dossier out (pour vérifier que `out` existe)
+        run: ls -la out
+
+      - name: 📝 Créer le fichier .nojekyll
+        run: touch ./out/.nojekyll
+
+      - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: out  # Le dossier généré par `next export`
-
-      - name: Créer le fichier .nojekyll
-        run: touch ./out/.nojekyll
