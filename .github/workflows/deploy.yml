@@ -1,5 +1,6 @@
-name: Déploiement  vers gh-pages
-# a quel moment se declenche l'acction
+name: Déploiement vers gh-pages
+
+# À quel moment se déclenche l'action
 on:
   push:
     branches:
@@ -25,7 +26,7 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🏗️ Build the project & Exporte en version statique dans dossier out
+      - name: 🏗️ Build the project & export en version statique dans le dossier `out`
         run: npm run build
 
       - name: 🚀 Deploy to GitHub Pages
@@ -34,5 +35,5 @@ jobs:
           branch: gh-pages
           folder: out  # Le dossier généré par `next export`
 
-     -name: Créer le fichier .nojekyll
+      - name: 📝 Créer le fichier .nojekyll
         run: touch ./out/.nojekyll
