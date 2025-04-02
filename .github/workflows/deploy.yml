@@ -33,3 +33,6 @@ jobs:
         with:
           branch: gh-pages
           folder: out  # Le dossier généré par `next export`
+
+        -name: créér .nojekyll
+        run: touch ./out/.nojekyll
