@@ -34,5 +34,5 @@ jobs:
           branch: gh-pages
           folder: out  # Le dossier généré par `next export`
 
-        -name: créer .nojekyll
-          run: touch ./out/.nojekyll
+     -name: Créer le fichier .nojekyll
+        run: touch ./out/.nojekyll
